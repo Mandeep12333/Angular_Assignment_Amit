@@ -1,0 +1,79 @@
+<div class="container mt-3">
+  <div class="dashboard_record">
+    <h2>Data Records</h2>        
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Country</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of allEmployees">
+          <td>{{item.ID}}</td>
+          <td>{{item.FName}}</td>
+          <td>{{item.LName}}</td>
+          <td> {{item.Country}}</td>
+          <td>{{item.Email}}</td>
+          <td><button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#edit_model"(click)="updateemployee(item.ID)">Edit</button> &nbsp;
+            <button class="btn btn-danger btn-sm"  (click)="deleteemployee(item.ID)">Delete</button></td>
+        </tr>
+       
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="edit_model"  tabindex="-1" role="dialog" aria-labelledby="edit_model" aria-hidden="true"  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Details</h4>
+        <button type="button" class="btn-close" (click)="closePopup()" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <form [formGroup]="employeeForm"  style="width: 600px; max-width: 100%; padding: 10px 20px;" (ngSubmit)="updateRecords(employeeForm.value);">
+  
+         <div class="mb-3 mt-3">
+          <label for="fname" class="form-label">First Name:</label>
+          <input type="text" class="form-control" id="FName" formControlName="FName" placeholder="First Name" >
+        </div>
+         <div class="mb-3 mt-3">
+          <label for="lname" class="form-label">Last Name:</label>
+          <input type="text" class="form-control" id="LName" formControlName="LName" placeholder="Last Name" >
+        </div> 
+       <div class="mb-3 mt-3">
+          <label for="lname" class="form-label">Country:</label>
+          <input type="text" class="form-control" id="Country" formControlName="Country" placeholder="Country" >
+        </div> 
+          <div class="mb-3 mt-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="Email" formControlName="Email" placeholder="Enter email" >
+          </div>
+          
+          <div class="form-check mb-3">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="remember"> Remember me
+            </label>
+          </div> 
+          <button type="submit" class="btn btn-primary">Submit</button>
+          
+        </form>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closePopup()"  data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+  </div>

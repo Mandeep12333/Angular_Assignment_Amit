@@ -1,0 +1,10 @@
+.add_record {
+    width: 600px;
+    max-width: 100%;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 5px solid #dfdfdf;
+    padding: 30px 20px;
+    box-shadow: 5px 9px 10px #cbcbcb;
+    border-radius: 5px;
+}
