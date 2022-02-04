@@ -6,4 +6,9 @@ export class Employee {
     Email:string | undefined;
     Password:String | undefined;
 }
+export class EmployeeSignIn {
+
+    Email:string | undefined;
+    Password:String | undefined;
+}
 

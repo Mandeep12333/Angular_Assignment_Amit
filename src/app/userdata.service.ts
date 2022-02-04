@@ -6,9 +6,15 @@ import { Employee } from './employee';
   providedIn: 'root'
 })
 export class UserdataService {
+  header: HttpHeaders;
+  url: string;
 
-  constructor(private http: HttpClient) { }
-    url='http://182.76.195.171:5479'
+  constructor(private http : HttpClient){
+    this.url='http://182.76.195.171:5479'
+    // this.Url='http://localhost:54174/'
+    const headerSettings: {[name: string]: string | string[]; } = {};  
+    this.header = new HttpHeaders(headerSettings);  
+  }
     
    //Get
     getallemployeedetails():Observable<Employee[]>{
@@ -20,7 +26,12 @@ export class UserdataService {
       return this.http.get<Employee>
       (this.url+'/GetRegistrationDataById?key='+ID);
     }
-    
+    //Login
+    Login(model : any){  
+      debugger;  
+      //  var a =this.Url+'SignIn';  
+     return this.http.post<any>(this.url + '/SignIn',model,{ headers: this.header});  
+    }
 
 
     //POST

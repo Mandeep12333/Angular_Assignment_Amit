@@ -9,20 +9,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule,FormGroup,  ReactiveFormsModule } from '@angular/forms';
 import { UserdataService } from './userdata.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { LogoutComponent } from './logout/logout.component'; 
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

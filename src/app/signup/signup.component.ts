@@ -8,7 +8,7 @@ import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-signup',
-  templateUrl: './signup.component.html',
+  templateUrl: './signup.component.html',  
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
@@ -26,7 +26,7 @@ export class SignupComponent implements OnInit {
   constructor(private router: Router,private formbulider: FormBuilder,private userdataservice:UserdataService) { }
 
   ngOnInit(): void {   
-    //debugger 
+    debugger 
     this.employeeForm = this.formbulider.group({  
       FName: ['', [Validators.required,Validators.maxLength(30),Validators.pattern('^[a-zA-Z ]*$')]],
       LName: ['', [Validators.required,Validators.maxLength(30),Validators.pattern('[aA-zZ]{1,30}')]],    
@@ -50,7 +50,7 @@ export class SignupComponent implements OnInit {
         if(this.employeeForm.valid){  
         this.userdataservice.insertemployeedetails(Employee).subscribe(  
           () => {
-            this.dataSaved = true;
+            this     .dataSaved = true;
             this.massage = 'Record saved Successfully';
             setTimeout(()=>{    
               this.massage = '';
