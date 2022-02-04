@@ -11,8 +11,7 @@ import { LogoutComponent } from './logout/logout.component';
 //   {
 //   component: DashboardComponent,
 //   path : 'dashboard',
-//   canActivate:[AuthenticationGuard]
-// },
+//   canActivate:[AuthenticationGuard] },
 // {
 //   component: LoginComponent,
 //   path :'',
@@ -28,7 +27,7 @@ import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
-  {path:'signup',component:SignupComponent,canActivate:[AuthenticationGuard]},
+  {path:'signup',component:SignupComponent},
   {path:'logout',component:LogoutComponent},
   {path:'dashboard',component:DashboardComponent,canActivate:[AuthenticationGuard]},
   {path:'', redirectTo:'/login',pathMatch:'full'}
